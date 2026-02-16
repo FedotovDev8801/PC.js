@@ -21,3 +21,7 @@
 ## Known issues
 
 See [known issues here](https://github.com/FedotovDev8801/PC.js/issues/1).
+
+## Host PC.js on your server
+
+this section is in development (im lazy to write it)
