@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PC.js</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-auth-compat.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mammoth/1.4.21/mammoth.browser.min.js"></script>
+</head>
+<body class="theme-light">
+
+    <div id="top-toolbar">
+        <div class="toolbar-left">
+            <button id="start-btn-trigger" onclick="toggleStartMenu()"></button>
+            <span id="active-app-name">PC.js Desktop</span>
+        </div>
+        <div class="toolbar-right">
+            <span id="top-clock">00:00</span>
+            <button class="icon-btn" onclick="openApp('settings')">⚙️</button>
+            <div id="user-profile" onclick="googleLogin()">Login</div>
+        </div>
+    </div>
+
+    <div id="desktop"></div>
+
+    <div id="start-menu" class="hidden">
+        <div class="start-search"><input type="text" placeholder="Search..."></div>
+        <div class="start-list" id="start-apps-list">
+            <div class="start-item" onclick="openApp('browser')">🌐 Browser</div>
+            <div class="start-item" onclick="openApp('games')">🎮 Game Hub</div>
+            <div class="start-item" onclick="openApp('notes')">📝 Notes Pro</div>
+            <div class="start-item" onclick="openApp('installer')">📦 Installer</div>
+        </div>
+        <div class="start-footer">
+            <button onclick="saveSystemState()">💾 Backup .pcjs</button>
+            <input type="file" id="load-pcjs" hidden onchange="loadSystemState(event)">
+            <button onclick="document.getElementById('load-pcjs').click()">📂 Restore from .pcjs</button>
+        </div>
+    </div>
+
+    <div id="taskbar">
+        <div id="taskbar-apps"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
